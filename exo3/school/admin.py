@@ -3,10 +3,10 @@ from django.contrib import admin
 from . import models
 from django.utils.safestring import mark_safe
 
-
+from actions import Actions 
 
 # Register your models here.
-class EventAdmin(admin.ModelAdmin):
+class EventAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom','image']}),
         ('Status', {'fields': ['status']})
@@ -26,7 +26,7 @@ class EventAdmin(admin.ModelAdmin):
         return mark_safe("<img src='{url}' width= 100px height=50px >".format(url=obj.image.url))
 
     
-class AdmissionAdmin(admin.ModelAdmin):
+class AdmissionAdmin(Actions):
     
     fieldsets = [
         ('Presentation',{'fields': ['nom','prenom','email']}),
@@ -44,7 +44,7 @@ class AdmissionAdmin(admin.ModelAdmin):
 
 
 
-class CoursesAdmin(admin.ModelAdmin):
+class CoursesAdmin(Actions):
     
     fieldsets = [
         ('Presentation',{'fields': ['titre']}),

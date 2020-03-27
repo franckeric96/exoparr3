@@ -3,10 +3,10 @@ from django.contrib import admin
 from . import models
 from django.utils.safestring import mark_safe
 
-
+from actions import Actions
 
 # Register your models here.
-class SocialAccountAdmin(admin.ModelAdmin):
+class SocialAccountAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom']}),
         ('reseaux', {'fields': ['icon','lien','status']})
@@ -23,7 +23,7 @@ class SocialAccountAdmin(admin.ModelAdmin):
     list_per_page = 10
     
     
-class InfoSiteAdmin(admin.ModelAdmin):
+class InfoSiteAdmin(Actions):
     
     fieldsets = [
         ('Presentation',{'fields': ['image','titre']}),
